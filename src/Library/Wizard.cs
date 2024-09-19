@@ -4,14 +4,14 @@ public class Wizard
 {
     //responsabilidades de conocer
     public string Nombre { get; set; } // conocer su nombre
-    public int Life { get; set; }     //conocer las vidas que le quedan
+    public int Vida { get; set; }     //conocer las vidas que le quedan
     private Baston baston; 
     private LibroDeHechizos libro_de_hechizos;
     
-    public Wizard(string nombre, int life, Baston baston_, LibroDeHechizos libroDeHechizos_)
+    public Wizard(string nombre, int vida, Baston baston_, LibroDeHechizos libroDeHechizos_)
     {
         Nombre = nombre;
-        Life = life;
+        Vida = vida;
         baston = baston_;
         libro_de_hechizos = libroDeHechizos_;
 
@@ -85,16 +85,16 @@ public class Wizard
             int daño = attack - defenseContrincante; //el daño que se le hace al otro
          //   if (daño < 0) daño = 0; //para que el daño no sea negativo pero ¿ puede ser negativo o no?
 
-         contrincante.Life -= daño; //le baja la vida al otro con el ataque que le hice
-         Console.WriteLine($"{Nombre} ataca a {contrincante.Nombre}, y le hace {daño} daño y queda con {contrincante.Life} vidas.");
+         contrincante.Vida -= daño; //le baja la vida al otro con el ataque que le hice
+         Console.WriteLine($"{Nombre} ataca a {contrincante.Nombre}, y le hace {daño} daño y queda con {contrincante.Vida} vidas.");
         }
     }
 
 
     public void Heal(int cantidad) // para que se pueda curar
     {
-        Life += cantidad; //esto hace que cuando se cura aumente la vida
-        Console.WriteLine($"{Nombre} se curo y ahora tiene {Life} vidas.");
+        Vida += cantidad; //esto hace que cuando se cura aumente la vida
+        Console.WriteLine($"{Nombre} se curo y ahora tiene {Vida} vidas.");
     }
     
     
