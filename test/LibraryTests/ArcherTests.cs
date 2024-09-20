@@ -1,10 +1,9 @@
-﻿using System.Diagnostics;
+﻿namespace DefaultNamespace;
 using Program;
 
 public class ArcherTests
 {
     [Test]
-
     public void TestArcher()
     {
         // Arrange
@@ -18,12 +17,13 @@ public class ArcherTests
         Arma crossbow = new Arma("Crossbow", 12);
         Armadura heavyArmor = new Armadura("Heavy Armor", 8);
         Archer megaarquero = new Archer("Mega Arquero", 120, crossbow, heavyArmor);
-        
-        
+
         // Act
+        // Arquero Mágico ataca a Mega Arquero
         arqueromagico.Atacar(megaarquero);
         
         // Assert
-        Assert.That(arqueromagico.Vida, Is.EqualTo(118));
+        Assert.That(arqueromagico.Vida, this.EqualTo(118));
+
     }
 }
