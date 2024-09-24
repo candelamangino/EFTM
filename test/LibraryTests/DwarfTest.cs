@@ -1,5 +1,7 @@
 namespace LibraryTests;
 
+using Library;
+
 public class DwarfTests
 {
     [Test]
@@ -20,6 +22,6 @@ public class DwarfTests
         brokk.Atacar(minidwarf);
         
         // Assert
-        Assert.That(brokk.Vida, this.EqualTo(48))
+        Assert.That(brokk.Vida, Is.EqualTo(75));
     }
 }

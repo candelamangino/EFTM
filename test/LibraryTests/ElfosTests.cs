@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
-using Program;
+using Library;
+
+namespace LibraryTests;
 
 public class ElfosTests
 {
@@ -11,8 +13,8 @@ public class ElfosTests
         Gun catana = new Gun("Catana", 80);
         Club garroteDePlastico = new Club("Garrote de plastico", 50);
         Club garroteDeMadera = new Club("Garrote de madera", 70);
-        Elfos elfos1 = new Elfos("Penny", 100);
-        Elfos elfos2 = new Elfos("Stuart", 100);
+        Elfos elfos1 = new Elfos("Penny", 100, escopeta, garroteDePlastico);
+        Elfos elfos2 = new Elfos("Stuart", 100, catana, garroteDeMadera);
 
         elfos1.Attack(elfos2);
         elfos2.Attack(elfos1);

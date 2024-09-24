@@ -1,4 +1,4 @@
-﻿namespace Program;
+﻿namespace Library;
 
 public class Dwarf
 {
@@ -18,7 +18,7 @@ public class Dwarf
     }
     public int ObtenerValorAtaque()
     {
-        return Gun.Ataque;
+        return Gun.Poder;
     }
 
     public int ObtenerValorDefensa()
