@@ -1,6 +1,8 @@
-﻿namespace Library;
+using Library;
 
-class Program
+namespace Program
+{
+    class Program
     {
         static void Main()
         {
@@ -8,24 +10,49 @@ class Program
             Gun bow = new Gun("Bow", 10);
             Armor lighArmor = new Armor("Light Armor", 5);
 
-            // Crear personaje Archer
-            Archer arqueromagico = new Archer("Arquero Mágico", 100, bow, lighArmor);
+            Gun escopeta = new Gun(" Escopeta", 100);
+            Gun catana = new Gun("Catana", 100);
 
+            Club garroteDePlastico = new Club("Garrote de plastico", 100);
+            Club garroteDeMadera = new Club("Garrote de metal", 100);
+            
             // Crear otro personaje del mismo tipo (Archer) para simular una pelea
             Gun crossbow = new Gun("Crossbow", 12);
             Armor heavyArmor = new Armor("Heavy Armor", 8);
-            Archer megaarquero = new Archer("Mega Arquero", 120, crossbow, heavyArmor);
+            // Archer megaarquero = new Archer("Mega Arquero", 120, crossbow, heavyArmor);
+            //
+            // // Arquero Mágico ataca a Mega Arquero
+            // arqueromagico.Attack(megaarquero);
+            //
+            // // Mega Arquero se cura
+            // megaarquero.Heal();
+            //
+            // // Mega Arquero ataca a Arquero Mágico
+            // megaarquero.Attack(arqueromagico);
+            //
+            // // Arquero Mágico se cura
+            // arqueromagico.Heal();
 
-            // Arquero Mágico ataca a Mega Arquero
-            arqueromagico.Attack(megaarquero);
-
-            // Mega Arquero se cura
-            megaarquero.Heal();
+            Elfos elfos1 = new Elfos("Penny", 100, escopeta, garroteDeMadera);
+            Elfos elfos2 = new Elfos("Stuart", 100, catana, garroteDePlastico);
             
-            // Mega Arquero ataca a Arquero Mágico
-            megaarquero.Attack(arqueromagico);
+            Console.WriteLine("----COMIENZA LA BATALLA----");
 
-            // Arquero Mágico se cura
-            arqueromagico.Heal();
+            elfos1.Attack(elfos2);
+            elfos2.Attack(elfos1);
+            
+            elfos1.Heal((20));
+            elfos2.Heal(15);
+
+            Gun garroteDeMetal = new Gun("Baston de metal", 120);
+            Club torreta = new Club("Torreta", 90);
+            
+            elfos2.SetGun(garroteDeMetal);
+            elfos2.SetClub(torreta);
+            
+            elfos2.Attack(elfos1);
+            
+            Console.WriteLine($"----FIN DE LA BATALLA----");
         }
     }
+}

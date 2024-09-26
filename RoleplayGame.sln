@@ -10,24 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "src\Library\Library.csproj", "{578B53E9-483C-4853-A614-1530BA7AB91B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7B336D1D-6320-4212-A3AD-D4D6BEB2353C}"
-	ProjectSection(SolutionItems) = preProject
-		test\LibraryTests\ArcherTests.cs = test\LibraryTests\ArcherTests.cs
-		test\LibraryTests\LibraryTests.csproj = test\LibraryTests\LibraryTests.csproj
-		test\LibraryTests\obj\ArcherTests.csproj.nuget.dgspec.json = test\LibraryTests\obj\ArcherTests.csproj.nuget.dgspec.json
-		test\LibraryTests\obj\ArcherTests.csproj.nuget.g.props = test\LibraryTests\obj\ArcherTests.csproj.nuget.g.props
-		test\LibraryTests\obj\ArcherTests.csproj.nuget.g.targets = test\LibraryTests\obj\ArcherTests.csproj.nuget.g.targets
-		test\LibraryTests\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs = test\LibraryTests\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
-		test\LibraryTests\obj\Debug\net8.0\ArcherTests.AssemblyInfo.cs = test\LibraryTests\obj\Debug\net8.0\ArcherTests.AssemblyInfo.cs
-		test\LibraryTests\obj\Debug\net8.0\ArcherTests.AssemblyInfoInputs.cache = test\LibraryTests\obj\Debug\net8.0\ArcherTests.AssemblyInfoInputs.cache
-		test\LibraryTests\obj\Debug\net8.0\ArcherTests.assets.cache = test\LibraryTests\obj\Debug\net8.0\ArcherTests.assets.cache
-		test\LibraryTests\obj\Debug\net8.0\ArcherTests.GeneratedMSBuildEditorConfig.editorconfig = test\LibraryTests\obj\Debug\net8.0\ArcherTests.GeneratedMSBuildEditorConfig.editorconfig
-		test\LibraryTests\obj\Debug\net8.0\ArcherTests.GlobalUsings.g.cs = test\LibraryTests\obj\Debug\net8.0\ArcherTests.GlobalUsings.g.cs
-		test\LibraryTests\obj\project.assets.json = test\LibraryTests\obj\project.assets.json
-		test\LibraryTests\obj\project.nuget.cache = test\LibraryTests\obj\project.nuget.cache
-		test\LibraryTests\obj\project.packagespec.json = test\LibraryTests\obj\project.packagespec.json
-		test\LibraryTests\obj\rider.project.model.nuget.info = test\LibraryTests\obj\rider.project.model.nuget.info
-		test\LibraryTests\obj\rider.project.restore.info = test\LibraryTests\obj\rider.project.restore.info
-	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTests", "test\LibraryTests\LibraryTests.csproj", "{2434E105-6F9E-4CE8-9D9A-C9312F60A257}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTests", "test\LibraryTests\LibraryTests.csproj", "{16D7E85C-A36B-4310-A130-9C333B1D8B76}"
 EndProject
