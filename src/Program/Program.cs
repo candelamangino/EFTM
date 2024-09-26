@@ -20,18 +20,20 @@ namespace Program
             Gun crossbow = new Gun("Crossbow", 12);
             Armor heavyArmor = new Armor("Heavy Armor", 8);
             // Archer megaarquero = new Archer("Mega Arquero", 120, crossbow, heavyArmor);
-            //
-            // // Arquero Mágico ataca a Mega Arquero
-            // arqueromagico.Attack(megaarquero);
-            //
-            // // Mega Arquero se cura
-            // megaarquero.Heal();
-            //
-            // // Mega Arquero ataca a Arquero Mágico
-            // megaarquero.Attack(arqueromagico);
-            //
-            // // Arquero Mágico se cura
-            // arqueromagico.Heal();
+            
+            // Arquero Mágico ataca a Mega Arquero
+            Archer arqueromagico = new Archer("Arquero Magico", 100, bow, lighArmor);
+            Archer megaarquero = new Archer("Mega Arquero", 120, crossbow, heavyArmor);
+            arqueromagico.Attack(megaarquero);
+            
+            // Mega Arquero se cura
+            megaarquero.Heal();
+            
+            // Mega Arquero ataca a Arquero Mágico
+            megaarquero.Attack(arqueromagico);
+            
+            // Arquero Mágico se cura
+            arqueromagico.Heal();
 
             Elfos elfos1 = new Elfos("Penny", 100, escopeta, garroteDeMadera);
             Elfos elfos2 = new Elfos("Stuart", 100, catana, garroteDePlastico);

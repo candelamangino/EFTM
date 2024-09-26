@@ -2,7 +2,7 @@ namespace Library;
 
 public class Dwarf : ICharacter
 {
-    public string Nombre { get; }
+    public string Name { get; }
     public Gun Gun { get; set; }
     public int Health { get; set; }
     public int HealthMaxima { get; private set; }
@@ -10,7 +10,7 @@ public class Dwarf : ICharacter
 
     public Dwarf(string nombre, Gun gun, int health, Escudo escudo)
     {
-        this.Nombre = nombre;
+        this.Name = nombre;
         this.Gun = gun;
         this.Health = health;
         this.HealthMaxima = health;
@@ -56,12 +56,12 @@ public class Dwarf : ICharacter
             objective.Health = 0;
         }
             
-        Console.WriteLine(this.Nombre + " ataca a XXX, causando " + damage + " de daño. XXX tiene ahora " + objective.Health + " de vida.");
+        Console.WriteLine(this.Name + " ataca a XXX, causando " + damage + " de daño. XXX tiene ahora " + objective.Health + " de vida.");
     }
     
     public void Heal()
     {
         int Health = this.HealthMaxima;
-        Console.WriteLine($"{this.Nombre} se curó y ahora tiene {Health} de vida");
+        Console.WriteLine($"{this.Name} se curó y ahora tiene {Health} de vida");
     }
 }    
