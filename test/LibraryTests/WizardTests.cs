@@ -22,7 +22,7 @@ public class WizardTests
         wizard1.Attack(wizard2); 
         wizard2.Attack(wizard1);
       //Assert
-      Assert.That(wizard1.Vida, Is.EqualTo(45));
+      Assert.That(wizard1.Health, Is.EqualTo(45));
         
     }
     

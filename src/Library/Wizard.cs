@@ -1,25 +1,31 @@
 namespace Library;
 
-public class Wizard
+public class Wizard : ICharacter
 {
     //responsabilidades de conocer
-    public string Nombre { get; set; } // conocer su nombre
-    public int Vida { get; set; }     //conocer las vidas que le quedan
-    private Baston baston; 
-    private LibroDeHechizos libro_de_hechizos;
+    public string Name { get; }
+     // conocer su nombre
+    public int Health { get; set; }     //conocer las vidas que le quedan
+    public Baston baston;
+    public LibroDeHechizos libro_de_hechizos;
+    public int MaxHealth { get; private set; }
     
-    public Wizard(string nombre, int vida, Baston baston_, LibroDeHechizos libroDeHechizos_)
+    
+    public Wizard(string name, int health, Baston baston_, LibroDeHechizos libroDeHechizos_)
     {
-        Nombre = nombre;
-        Vida = vida;
+         
+        this.Name = name;
+        this.Health = health;
         baston = baston_;
         libro_de_hechizos = libroDeHechizos_;
+        this.MaxHealth = health;
 
 
     }
     
     //responsabillidades de hacer
-    public int GetAttackValue() //para saber el valor de ataque
+    
+    public int ObtainAttackValue() //para saber el valor de ataque
     {
         int attackValue = 10; //puse 10 solo para probar
         if (baston != null)
@@ -34,8 +40,11 @@ public class Wizard
 
         return attackValue;
     }
-//para saber el valor de defensa
-    public int GetDefenseValue()
+
+    
+
+    //para saber el valor de defensa
+    public int ObtainDefenseValue()
     {
         int defenseValue = 5; //valor base q invente de defensa
         if (baston != null)
@@ -75,29 +84,25 @@ public class Wizard
         Console.WriteLine($"Libro de hechizos actual {libro_de_hechizos}");
     }
 
-    public void Attack(Wizard contrincante) //atacar al otro mago
+    public void Attack(ICharacter objective) //atacar al otro mago
     {
-        if (contrincante != null)
+        if (objective != null)
         {
-            int attack = GetAttackValue();  //el ataque que se le va a hacer al otro
-            int defenseContrincante = contrincante.GetDefenseValue(); //la defensa del otro lo que vale
+            int attack = ObtainAttackValue();  //el ataque que se le va a hacer al otro
+            int defenseContrincante = objective.ObtainDefenseValue(); //la defensa del otro lo que vale
 
             int daño = attack - defenseContrincante; //el daño que se le hace al otro
          //   if (daño < 0) daño = 0; //para que el daño no sea negativo pero ¿ puede ser negativo o no?
 
-         contrincante.Vida -= daño; //le baja la vida al otro con el ataque que le hice
-         Console.WriteLine($"{Nombre} ataca a {contrincante.Nombre}, y le hace {daño} daño y queda con {contrincante.Vida} vidas.");
+         objective.Health -= daño; //le baja la vida al otro con el ataque que le hice
+         Console.WriteLine($"{Name} ataca a {objective.Name}, y le hace {daño} daño y queda con {objective.Health} vidas.");
         }
     }
 
 
-    public void Heal(int cantidad) // para que se pueda curar
+    public void Heal() // para que se pueda curar
     {
-        Vida += cantidad; //esto hace que cuando se cura aumente la vida
-        Console.WriteLine($"{Nombre} se curo y ahora tiene {Vida} vidas.");
+        Health = MaxHealth; //esto hace que cuando se cura aumente la vida
+        Console.WriteLine($"{Name} se curo y ahora tiene {Health} vidas.");
     }
-    
-    
-    
-    
 }

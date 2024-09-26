@@ -48,6 +48,6 @@ public class Archer : ICharacter
     public void Heal()
     {
         Health = MaxHealth;
-        Console.WriteLine($"{Name} se curó y ahora tiene {Name} de vida");
+        Console.WriteLine($"{Name} se curó y ahora tiene {Health} de vida");
     }
 }
