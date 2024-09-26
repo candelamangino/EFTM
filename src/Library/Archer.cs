@@ -1,54 +1,70 @@
-﻿namespace Program;
+﻿using System.Collections;
 
-public class Archer
+namespace Library;
+
+public class Archer : ICharacter
 {
-    public string Nombre { get; }
-    public Arma Arma { get; set; }
-    public int Vida { get; set; }
-    public int VidaMaxima { get; private set; } // Se utiliza en este caso para curar al personaje
-    public Armadura Armadura { get; set; }
+    public string Name { get; }
+    public int Health { get; set; }
+    public int MaxHealth { get; private set; } // Se utiliza en este caso para curar al personaje
+    public ArrayList Items { get; private set; }
         
     
-    public Archer(string nombre, int vida, Arma arma, Armadura armadura)
+    public Archer(string name, int health, Gun gun, Armor armor)
     {
-        this.Nombre = nombre;
-        this.Vida = vida;
-        this.Arma = arma;
-        this.Armadura = armadura;
-        this.VidaMaxima = vida; // De esta forma puedo guardar la vida inicial para curar al personje
+        this.Name = name;
+        this.Health = health;
+        this.Items = new ArrayList();
+        this.Items.Add(gun);
+        this.Items.Add(armor);
+        this.MaxHealth = health; // De esta forma puedo guardar la vida inicial para curar al personje
     }
     
-    public int ObtenerValorAtaque()
+    public int ObtainAttackValue()
     {
-        return Arma.Ataque;
-    }
-    
-    public int ObtenerValorDefensa()
-    {
-        return Armadura.Defensa;
-    }
-    
-    public void Atacar(Archer objetivo)
-    {
-        int danio = ObtenerValorAtaque() - objetivo.ObtenerValorDefensa();
-        if (danio < 0)
+        int totalAttack = 0;
+
+        foreach (Item item in Items)
         {
-            danio = 0;
+            totalAttack += item.Attack;
+        }
+
+        return totalAttack;
+    }
+    
+    public int ObtainDefenseValue()
+    {
+        int totalDefense = 0;
+
+        foreach (Item item in Items)
+        {
+            totalDefense += item.Defense;
+        }
+
+        return totalDefense;
+    }
+    
+    public void Attack(ICharacter objective)
+    {
+        int damage = ObtainAttackValue() - objective.ObtainDefenseValue();
+        if (damage < 0)
+        {
+            damage = 0;
         }
     
-        objetivo.Vida -= danio;
+        objective.Health -= damage;
     
-        if (objetivo.Vida < 0)
+        if (objective.Health < 0)
         {
-            objetivo.Vida = 0;
+            objective.Health = 0;
         }
             
-        Console.WriteLine($"{Nombre} ataca a {objetivo.Nombre}, causando {danio} de daño. {objetivo.Nombre} tiene ahora {objetivo.Vida} de vida.");
+        Console.WriteLine(this.Name + " ataca a XXX, causando " + damage + " de daño. XXX tiene ahora " + objective.Health + " de vida.");
     }
     
-    public void Curar()
+    public void Heal()
     {
-        Vida = VidaMaxima;
-        Console.WriteLine($"{Nombre} se curó y ahora tiene {Vida} de vida");
+        Health = MaxHealth;
+        Console.WriteLine($"{Name} se curó y ahora tiene {Health} de vida");
     }
 }
